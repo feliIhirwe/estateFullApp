@@ -18,8 +18,8 @@ public class PropertyController {
 	@Autowired
 	PropertyService propertyService;
 	
-	@RequestMapping(value = "/create")
-	public String createProperty(@ModelAttribute("property") Property property, Principal principal) throws Exception {
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public String createProperty(@ModelAttribute("property") Property property) throws Exception {
 		System.out.println("Test 101: "+property);
 		try {
 			//model.addAttribute("property", new Property());

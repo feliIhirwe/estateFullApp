@@ -19,8 +19,8 @@ public class HomeController {
 	@GetMapping("/login")
 	public String login(@ModelAttribute("username") String username,@ModelAttribute("password") String password, Principal principal) throws Exception {
 		
-		if(!username.contentEquals("arthur") | !password.contentEquals("12345")) {
-			return "index";
+		if(!username.equals("arthur") | !password.equals("12345")) {
+			return "login";
 		}
 		else {
 			return "login";
