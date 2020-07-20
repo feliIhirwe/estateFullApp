@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header :: common-header">
+
+  <title>RainbowEstate Agency</title>
+</head>
+<body>
+
+<main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Create a property</h1>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Create property
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+
+    <!-- ======= Contact Single ======= -->
+    <section class="contact">
+      <div class="container">
+          <div class="col-sm-12 section-t8">
+            <div class="row">
+              <div class="col-md-7">
+                <form method="post" th:action="@{/properties}" th:object="${property}">
+                  <div class="row">
+                    <div class="col-md-9 mb-1">
+                      <div class="form-group">
+                        <h6>Property name</h6>
+                        <input type="text" th:value="${property.name}" required="required"
+                         class="form-control form-control-lg form-control-a" placeholder="Property name" 
+                         data-rule="minlen:4" data-msg="Please enter at least 4 characters!">
+                        <div class="validate"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-9 mb-1">
+                      <div class="form-group">
+                        <h6>Price in $</h6>
+                        <input type="number" name="price" th:value="${property.price}" required="required"
+                        class="form-control form-control-lg form-control-a" placeholder="Property price" 
+                        data-rule="minlen:1" data-msg="Please enter the price">
+                        <div class="validate"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-9 mb-1">
+                      <div class="form-group">
+                        <h6>Total area im metre-square</h6>
+                        <input type="text" th:value="${property.area}" required="required"
+                        class="form-control form-control-lg form-control-a" placeholder="Total area" data-rule="minlen:4" data-msg="Please enter at least 4 characters!">
+                        <div class="validate"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-9 mb-1">
+                      <div class="form-group">
+                        <h6>City</h6>
+                        <select th:value="${property.location}" required="required"
+                        class="form-control form-control-lg form-control-a" id="city">
+                          <option>Kigali</option>
+                          <option>East</option>
+                          <option>West</option>
+                          <option>North</option>
+                          <option>South</option>
+                          <option>Other</option>
+                        </select>
+                        
+                        <div class="validate"></div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-9 mb-1">
+                      <div class="form-group">
+                        <h6>Type</h6>
+                        <select th:value="${property.type}" required="required"
+                        class="form-control form-control-lg form-control-a" id="type">
+                          <option>House</option>
+                          <option>Land</option>
+                          <option>Car</option>
+                          <option>Other</option>
+                        </select>
+                        <div class="validate"></div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-9 mb-1">
+                      <div class="form-group">
+                        <h6>Status</h6>
+                        <select th:value="${property.state}" required="required"
+                        class="form-control form-control-lg form-control-a" id="status">
+                          <option>Sale</option>
+                          <option>Rent</option>
+                        </select>
+                        <div class="validate"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <h6>Description</h6>
+                        <textarea th:value="${property.description}" required="required"
+                        class="form-control" name="descriptison" cols="45" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Description"></textarea>
+                        <div class="validate"></div>
+                      </div>
+
+                    <div class="col-md-12 text-center">
+                      <button type="submit" class="btn btn-a">Create</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              </div>
+            </div>
+          </div>
+    </section><!-- End Contact Single-->
+
+  </main><!-- End #main -->
+ <div th:replace="common/header :: footers"></div>
+
+</body>
+
+</html>
